@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mi cuenta — Santillana</title>
+<meta name="description" content="Tu cuenta Santillana: tus datos, tu carrito y tus pedidos.">
+<meta name="theme-color" content="#20292e">
+<link rel="preload" href="estilos.css?v=20261001-3" as="style"><link rel="stylesheet" href="estilos.css?v=20261001-3">
+<link rel="icon" href="assets/logo-santillana.png" type="image/png">
+<link rel="canonical" href="https://santillana-mx.com/bazar-e.mx/cuenta.html">
+<meta name="robots" content="noindex"></head><body>
+<header class="topbar"><div class="wrap topbar-in">
+<a class="logo" href="index.html"><img class="logo-img" src="assets/logo-santillana.png" alt="Santillana" width="466" height="296" fetchpriority="high" decoding="async"></a>
+<form class="search" action="index.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Buscar productos…" autocomplete="off"><button type="submit">Buscar</button></form>
+<nav class="top-actions"><a class="cart-btn acct-btn" data-account-btn data-drawer-bound="1" href="cuenta.html" aria-label="Entrar o crear cuenta"><svg class="ic ic-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> <span data-account-label>Entrar</span></a><a class="cart-btn" href="carrito.html" aria-label="Carrito">Carrito <span class="cart-count" data-cart-count>0</span></a></nav>
+</div></header>
+<main class="wrap"><p class="crumb"><a href="index.html">Inicio</a> / Mi cuenta</p>
+<h1>Mi cuenta</h1>
+<div id="cuenta-guest" style="display:none">
+<div class="cart-lay">
+<div class="tot"><h2 style="margin-top:0">Entrar</h2>
+<form id="c-login" novalidate style="display:grid;gap:10px">
+<div class="form-group"><label for="cl-email">Correo</label><input id="cl-email" type="email" required autocomplete="email"></div>
+<div class="form-group"><label for="cl-pass">Contraseña</label><input id="cl-pass" type="password" required minlength="8" autocomplete="current-password"></div>
+<p id="cl-error" class="pp-input-error"></p>
+<button class="btn add" type="submit">Entrar</button>
+</form></div>
+<div class="tot"><h2 style="margin-top:0">Crear cuenta</h2>
+<form id="c-register" novalidate style="display:grid;gap:10px">
+<div class="form-group"><label for="cr-nombre">Nombre completo</label><input id="cr-nombre" type="text" required minlength="3" autocomplete="name"></div>
+<div class="form-group"><label for="cr-email">Correo</label><input id="cr-email" type="email" required autocomplete="email"></div>
+<div class="form-group"><label for="cr-tel">WhatsApp (10 dígitos, opcional)</label><input id="cr-tel" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel"></div>
+<div class="form-group"><label for="cr-pass">Contraseña (mínimo 8)</label><input id="cr-pass" type="password" required minlength="8" autocomplete="new-password"></div>
+<p id="cr-error" class="pp-input-error"></p>
+<button class="btn add" type="submit">Crear cuenta</button>
+</form></div>
+</div>
+</div>
+<div id="cuenta-me" style="display:none">
+<div class="cart-lay">
+<div class="tot"><h2 style="margin-top:0">Hola, <span id="cm-nombre"></span></h2>
+<p class="nota" id="cm-email"></p>
+<form id="c-update" style="display:grid;gap:10px">
+<div class="form-group"><label for="cu-nombre">Nombre</label><input id="cu-nombre" type="text" minlength="3" autocomplete="name"></div>
+<div class="form-group"><label for="cu-tel">WhatsApp (10 dígitos)</label><input id="cu-tel" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel"></div>
+<div class="form-group"><label for="cu-pass">Nueva contraseña (opcional, mínimo 8)</label><input id="cu-pass" type="password" minlength="8" autocomplete="new-password"></div>
+<button class="btn add" type="submit">Guardar cambios</button>
+<p id="cu-out" class="nota"></p>
+</form>
+<p><a class="btn ver" href="carrito.html">Ver mi carrito</a> <button class="added-btn-outline" id="c-logout" type="button">Cerrar sesión</button></p>
+</div>
+<div class="tot"><h2 style="margin-top:0">Mis pedidos</h2><div id="cm-orders"><p class="nota">Cargando...</p></div></div>
+</div>
+</div>
+</main>
+<footer class="footer"><div class="wrap foot-grid">
+<div class="f-brand"><a class="logo f-logo" href="index.html"><img class="logo-img" src="assets/logo-santillana.png" alt="Santillana"></a><p>Tienda mexicana. Precios en MXN, garantía real de 12 meses.</p></div>
+<div><h4>Ayuda</h4><ul><li><a href="carrito.html">Mi carrito</a></li><li><a href="rastreo.html">Rastrear pedido</a></li><li><a href="contacto.html">Contacto</a></li><li><a href="privacidad.html">Aviso de Privacidad</a></li><li><a href="terminos.html">Términos</a></li></ul></div>
+</div><div class="foot-base"><div class="wrap base-in"><span>© 2026 Santillana · Precios en MXN</span><nav><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a></nav></div></div></footer>
+<a class="wa-float" href="https://wa.me/523310642354?text=Hola%20Santillana%2C%20necesito%20ayuda" target="_blank" rel="noopener" aria-label="WhatsApp Santillana"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
+<script>
+const err = (id, m) => { const e = document.getElementById(id); if (e) { e.textContent = m; e.classList.add('show'); } };
+async function apiAuth(data) {
+  const r = await fetch('api/auth.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || 'http-' + r.status);
+  return j;
+}
+function localCart() { try { return JSON.parse(localStorage.getItem('santillana_cart') || '{}'); } catch { return {}; } }
+async function refresh() {
+  let me = null;
+  try {
+    const r = await fetch('api/auth.php?action=me');
+    const j = await r.json();
+    me = j.logged ? j.customer : null;
+  } catch { me = null; }
+  document.getElementById('cuenta-guest').style.display = me ? 'none' : '';
+  document.getElementById('cuenta-me').style.display = me ? '' : 'none';
+  if (!me) return;
+  document.getElementById('cm-nombre').textContent = String(me.nombre).split(' ')[0];
+  document.getElementById('cm-email').textContent = me.email;
+  document.getElementById('cu-nombre').value = me.nombre || '';
+  document.getElementById('cu-tel').value = (me.telefono || '').replace(/\D+/g, '').slice(0, 10);
+  const box = document.getElementById('cm-orders');
+  try {
+    const r = await fetch('api/my-orders.php');
+    const j = await r.json();
+    if (!j.orders || !j.orders.length) { box.innerHTML = '<p class="nota">Aún no tienes pedidos.</p>'; return; }
+    box.innerHTML = j.orders.map(o =>
+      '<div class="order-row"><span><b>' + o.folio + '</b> · ' + o.estado_txt + '</span><strong>$' + Number(o.total).toLocaleString('es-MX', { minimumFractionDigits: 2 }) + '</strong></div>'
+      + o.items.map(it => '<div class="order-item-line"><span>' + it.nombre + ' x ' + it.qty + '</span></div>').join('')
+    ).join('');
+  } catch { box.innerHTML = '<p class="nota">No se pudieron cargar tus pedidos.</p>'; }
+}
+document.getElementById('c-login').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target;
+  if (!f.checkValidity()) { f.reportValidity(); return; }
+  const cart = Object.entries(localCart()).map(([id, qty]) => ({ id, qty }));
+  try {
+    const j = await apiAuth({ action: 'login', email: document.getElementById('cl-email').value.trim(), pass: document.getElementById('cl-pass').value, items: cart });
+    if (j.is_admin) { location.href = 'admin/'; return; }
+    location.reload();
+  } catch (ex) { err('cl-error', String(ex.message) === 'credenciales' ? 'Correo o contraseña incorrectos.' : 'No se pudo entrar.'); }
+});
+document.getElementById('c-register').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target;
+  if (!f.checkValidity()) { f.reportValidity(); return; }
+  const tel = document.getElementById('cr-tel').value.replace(/\D+/g, '');
+  if (tel && !/^\d{10}$/.test(tel)) { err('cr-error', 'El WhatsApp debe tener 10 dígitos.'); return; }
+  const cart = Object.entries(localCart()).map(([id, qty]) => ({ id, qty }));
+  try {
+    await apiAuth({ action: 'register', nombre: document.getElementById('cr-nombre').value.trim(), email: document.getElementById('cr-email').value.trim(), telefono: tel, pass: document.getElementById('cr-pass').value, items: cart });
+    location.reload();
+  } catch (ex) {
+    const m = String(ex.message);
+    err('cr-error', m === 'email-registrado' ? 'Ese correo ya tiene cuenta. Entra.' : m === 'pass-min-8' ? 'Mínimo 8 caracteres.' : 'No se pudo crear la cuenta.');
+  }
+});
+document.getElementById('c-update').addEventListener('submit', async e => {
+  e.preventDefault();
+  const out = document.getElementById('cu-out');
+  const tel = document.getElementById('cu-tel').value.replace(/\D+/g, '');
+  const data = { action: 'update', nombre: document.getElementById('cu-nombre').value.trim(), telefono: tel, pass_new: document.getElementById('cu-pass').value };
+  out.textContent = 'Guardando...';
+  try { await apiAuth(data); out.textContent = 'Cambios guardados.'; refresh(); }
+  catch (ex) { out.textContent = 'No se pudo guardar.'; }
+});
+document.getElementById('c-logout').addEventListener('click', async () => {
+  try { await apiAuth({ action: 'logout' }); } catch {}
+  location.reload();
+});
+refresh();
+</script>
+<script src="app.js?v=20261001-4" defer></script></body></html>

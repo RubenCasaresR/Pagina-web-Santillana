@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Darme de baja — Santillana</title>
+<meta name="description" content="Cancela tu suscripción a las novedades de Santillana.">
+<meta name="theme-color" content="#20292e">
+<link rel="preload" href="estilos.css" as="style"><link rel="stylesheet" href="estilos.css">
+<link rel="icon" href="assets/logo-santillana.png" type="image/png">
+<link rel="canonical" href="https://santillana-mx.com/bazar-e.mx/baja.html"></head><body>
+<header class="topbar"><div class="wrap topbar-in">
+<a class="logo" href="index.html"><img class="logo-img" src="assets/logo-santillana.png" alt="Santillana" width="466" height="296" fetchpriority="high" decoding="async"></a>
+<form class="search" action="index.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Buscar productos…" autocomplete="off"><button type="submit">Buscar</button></form>
+<nav class="top-actions"><a class="cart-btn" href="carrito.html" aria-label="Carrito">Carrito <span class="cart-count" data-cart-count>0</span></a></nav>
+</div></header>
+<main class="wrap"><p class="crumb"><a href="index.html">Inicio</a> / Darme de baja</p>
+<h1>Darme de baja</h1>
+<p class="nota">Ingresa el correo con el que te suscribiste y lo eliminamos de la lista de novedades.</p>
+<form id="baja-form" class="tot" style="display:grid;gap:10px;max-width:480px">
+<div class="form-group"><label for="b-email">Correo</label><input id="b-email" type="email" required placeholder="tu@correo.com" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:8px"></div>
+<button class="btn add" type="submit">Darme de baja</button>
+<p id="b-out" class="nota"></p>
+</form></main>
+<footer class="footer"><div class="wrap foot-grid">
+<div class="f-brand"><a class="logo f-logo" href="index.html"><img class="logo-img" src="assets/logo-santillana.png" alt="Santillana"></a><p>Tienda mexicana. Precios en MXN, garantía real de 12 meses.</p></div>
+<div><h4>Ayuda</h4><ul><li><a href="carrito.html">Mi carrito</a></li><li><a href="rastreo.html">Rastrear pedido</a></li><li><a href="contacto.html">Contacto</a></li><li><a href="privacidad.html">Aviso de Privacidad</a></li><li><a href="terminos.html">Términos</a></li></ul></div>
+</div><div class="foot-base"><div class="wrap base-in"><span>© 2026 Santillana · Precios en MXN</span><nav><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a></nav></div></div></footer>
+<script>
+document.getElementById('baja-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const out = document.getElementById('b-out');
+  out.textContent = 'Procesando...';
+  try {
+    const r = await fetch('api/unsubscribe.php', { method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: document.getElementById('b-email').value }) });
+    if (!r.ok) throw new Error('err');
+    out.textContent = 'Listo. Ya no recibirás nuestras novedades.';
+    e.target.reset();
+  } catch { out.textContent = 'No se pudo procesar. Escríbenos a ventas@santillana-mx.com.'; }
+});
+</script>
+<script src="app.js?v=20261001-4" defer></script></body></html>

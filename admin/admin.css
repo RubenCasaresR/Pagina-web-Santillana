@@ -1,0 +1,79 @@
+/* Admin Santillana — mismo lenguaje visual de la tienda */
+:root{
+--azul:#d84032;--azul-osc:#ad3328;--tinta:#2f4246;--tinta-osc:#20292e;
+--fondo:#f4f2ef;--txt:#232a30;--mut:#67727b;--borde:#e6e1da;--ok:#0a7a42;
+--grad-brand:linear-gradient(135deg,#e04a3a,#ad3328);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fondo);color:var(--txt)}
+a{color:var(--azul-osc)}
+/* Login */
+.adm-login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#31444a,#191f24 70%)}
+.adm-login .card{width:100%;max-width:400px;text-align:center}
+.adm-login img{height:64px;width:auto}
+.adm-err{background:#fef2f2;border:1px solid #f5c2c2;color:#a82f23;border-radius:10px;padding:10px 12px;font-size:14px}
+/* Layout */
+.adm{display:flex;min-height:100vh}
+.adm-side{width:236px;flex:none;background:linear-gradient(180deg,#242e34,#191f24);color:#cbd5e1;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.adm-brand{display:flex;align-items:center;gap:10px;padding:20px 18px 14px;color:#fff;font-weight:800}
+.adm-brand img{height:38px;width:auto;background:#fff;border-radius:8px;padding:2px}
+.adm-brand small{display:block;font-weight:500;color:#8b979d;font-size:11px}
+.adm-nav{display:flex;flex-direction:column;gap:4px;padding:6px 12px}
+.adm-nav a{color:#cbd5e1;text-decoration:none;font-size:14px;font-weight:600;padding:10px 12px;border-radius:10px;display:flex;gap:10px;align-items:center}
+.adm-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.adm-nav a.act{background:var(--grad-brand);color:#fff;box-shadow:0 8px 18px rgba(216,64,50,.35)}
+.adm-nav a svg{width:17px;height:17px;flex:none}
+.adm-side .out{margin-top:auto;padding:14px 18px;border-top:1px solid #3a474d}
+.adm-side .out a{color:#8b979d;text-decoration:none;font-size:13px}
+.adm-side .out a:hover{color:#fff}
+.adm-main{flex:1;min-width:0;padding:26px clamp(16px,3vw,34px) 50px;max-width:1180px}
+.adm-main h1{margin:0 0 4px;font-size:clamp(22px,3vw,30px);letter-spacing:-.02em}
+.adm-sub{color:var(--mut);font-size:14px;margin:0 0 20px}
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:0 0 20px}
+.kpi{background:#fff;border:1px solid var(--borde);border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(32,41,46,.06)}
+.kpi b{display:block;font-size:24px;letter-spacing:-.02em}
+.kpi span{font-size:12.5px;color:var(--mut)}
+/* Cards + tablas */
+.card{background:#fff;border:1px solid var(--borde);border-radius:16px;box-shadow:0 2px 8px rgba(32,41,46,.06);margin-bottom:20px;overflow:hidden;scroll-margin-top:16px}
+.card-h{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--borde);flex-wrap:wrap}
+.card-h h2{margin:0;font-size:17px}
+.tblwrap{overflow-x:auto}
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+.tbl th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);padding:10px 14px;border-bottom:1px solid var(--borde);background:#faf8f6;white-space:nowrap}
+.tbl td{padding:10px 14px;border-bottom:1px solid #f0ebe4;vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr:hover{background:#fffaf8}
+.tbl .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+/* Pills de estado */
+.pill{display:inline-block;font-size:12px;font-weight:800;padding:4px 11px;border-radius:20px;white-space:nowrap}
+.pill-paid{background:#e7f6ee;color:#0a7a42}
+.pill-pending{background:#fdf3e3;color:#b45309}
+.pill-transfer{background:#e8f1fd;color:#1d4ed8}
+.pill-cancel{background:#fdeaea;color:#a82f23}
+.pill-gray{background:#eef1f3;color:#5b6670}
+/* Forms */
+.frm{display:grid;gap:12px}
+.frm label{font-size:13px;font-weight:700;display:grid;gap:5px}
+.frm input,.frm select,.frm textarea{padding:10px 12px;border:1px solid var(--borde);border-radius:10px;font-size:14px;background:#fdfcfa;width:100%}
+.frm input:focus,.frm select:focus,.frm textarea:focus{background:#fff;border-color:var(--azul);outline:none;box-shadow:0 0 0 3px rgba(216,64,50,.15)}
+.frm-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{display:inline-block;padding:9px 16px;border-radius:10px;font-weight:700;font-size:13.5px;cursor:pointer;border:1px solid var(--azul);text-decoration:none}
+.btn-primary{background:var(--grad-brand);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(216,64,50,.3)}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-ghost{background:#fff;color:var(--tinta)}
+.frm input[type=checkbox]{width:auto;margin-right:6px}
+.btn-danger{background:#fff;color:#a82f23;border-color:#e5b4b4}
+.btn-sm{padding:6px 11px;font-size:12.5px}
+form.inline{display:inline}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.mut{color:var(--mut);font-size:13px}
+code{background:#f0ebe4;padding:2px 6px;border-radius:6px;font-size:12.5px}
+@media(max-width:860px){
+.adm{flex-direction:column}
+.adm-side{width:100%;height:auto;position:static}
+.adm-nav{flex-direction:row;overflow-x:auto}
+.adm-nav a{white-space:nowrap}
+.adm-side .out{border:0;margin:0}
+.frm-row{grid-template-columns:1fr}
+}

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /productos/
+Disallow: /data/
+
+# No indexar mirror scrapeado ni backups (ahorra crawl y evita descargas de 400MB)
+Disallow: /santillana/
+Disallow: /*.zip$
+Disallow: /carrito.html
+
+Sitemap: https://santillana-mx.com/bazar-e.mx/sitemap.xml

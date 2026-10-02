@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contacto — Santillana</title>
+<meta name="description" content="Contáctanos: Calle Colón #180, Zona Centro. WhatsApp 33 1064 2354, ventas@santillana-mx.com.">
+<meta name="theme-color" content="#20292e">
+<link rel="preload" href="estilos.css?v=20261001-3" as="style"><link rel="stylesheet" href="estilos.css?v=20261001-3">
+<link rel="icon" href="assets/logo-santillana.png" type="image/png">
+<link rel="canonical" href="https://santillana-mx.com/bazar-e.mx/contacto.html"></head><body>
+<header class="topbar"><div class="wrap topbar-in">
+<a class="logo" href="index.html"><img class="logo-img" src="assets/logo-santillana.png" alt="Santillana" width="466" height="296" fetchpriority="high" decoding="async"></a>
+<form class="search" action="index.html" method="get" role="search"><input id="q" name="q" type="search" placeholder="Buscar productos…" autocomplete="off"><button type="submit">Buscar</button></form>
+<nav class="top-actions"><a class="cart-btn acct-btn" data-account-btn data-drawer-bound="1" href="cuenta.html" aria-label="Entrar o crear cuenta"><svg class="ic ic-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> <span data-account-label>Entrar</span></a><a class="cart-btn" href="carrito.html" aria-label="Carrito">Carrito <span class="cart-count" data-cart-count>0</span></a></nav>
+</div></header>
+<main class="wrap"><p class="crumb"><a href="index.html">Inicio</a> / Contacto</p>
+<h1>Contacto</h1>
+<div class="cart-lay">
+<div class="tot">
+<h2 style="margin-top:0">Visítanos</h2>
+<p><b>Calle Colón #180, Zona Centro</b></p>
+<p>WhatsApp: <a href="https://wa.me/523310642354" target="_blank" rel="noopener">33 1064 2354</a><br>
+Correo: <a href="mailto:ventas@santillana-mx.com">ventas@santillana-mx.com</a><br>
+Horario: Lun–Sáb · 9:00–18:00</p>
+<p><a class="btn add" href="https://wa.me/523310642354?text=Hola%20Santillana" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
+</div>
+<div class="tot">
+<h2 style="margin-top:0">Escríbenos</h2>
+<form id="contact-form" style="display:grid;gap:10px" novalidate>
+<div class="form-group"><label for="c-nombre">Nombre</label><input id="c-nombre" required minlength="3" placeholder="Tu nombre" autocomplete="name" style="width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:8px"></div>
+<div class="form-group"><label for="c-email">Correo</label><input id="c-email" type="email" required placeholder="tu@correo.com" autocomplete="email" style="width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:8px"></div>
+<div class="form-group"><label for="c-msg">Mensaje</label><textarea id="c-msg" required minlength="10" rows="5" placeholder="¿En qué te ayudamos?" style="width:100%;padding:10px 12px;border:1px solid var(--borde);border-radius:8px"></textarea></div>
+<input type="text" id="c-empresa" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px" aria-hidden="true">
+<button class="btn add" type="submit">Enviar mensaje</button>
+<p id="c-out" class="nota"></p>
+</form>
+</div>
+</div></main>
+<footer class="footer"><div class="wrap foot-grid">
+<div class="f-brand"><a class="logo f-logo" href="index.html"><img class="logo-img" src="assets/logo-santillana.png" alt="Santillana"></a><p>Tienda mexicana. Precios en MXN, garantía real de 12 meses.</p></div>
+<div><h4>Ayuda</h4><ul><li><a href="carrito.html">Mi carrito</a></li><li><a href="rastreo.html">Rastrear pedido</a></li><li><a href="contacto.html">Contacto</a></li><li><a href="privacidad.html">Aviso de Privacidad</a></li><li><a href="terminos.html">Términos</a></li></ul></div>
+</div><div class="foot-base"><div class="wrap base-in"><span>© 2026 Santillana · Precios en MXN</span><nav><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a></nav></div></div></footer>
+<a class="wa-float" href="https://wa.me/523310642354?text=Hola%20Santillana%2C%20necesito%20ayuda" target="_blank" rel="noopener" aria-label="WhatsApp Santillana"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg></a>
+<script>
+let RE_SITEKEY = null;
+async function recaptchaToken() {
+  try {
+    if (RE_SITEKEY === null) {
+      const c = await fetch('api/site-config.php').then(r => r.json()).catch(() => ({}));
+      RE_SITEKEY = c.recaptcha_sitekey || '';
+    }
+    if (!RE_SITEKEY) return '';
+    if (!window.grecaptcha) {
+      await new Promise((res, rej) => {
+        const s = document.createElement('script');
+        s.src = 'https://www.google.com/recaptcha/api.js?render=' + encodeURIComponent(RE_SITEKEY);
+        s.onload = res; s.onerror = rej; document.head.appendChild(s);
+      });
+    }
+    return await new Promise(res => window.grecaptcha.execute(RE_SITEKEY, { action: 'contact' }).then(res).catch(() => res('')));
+  } catch { return ''; }
+}
+document.getElementById('contact-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const out = document.getElementById('c-out');
+  const data = { nombre: document.getElementById('c-nombre').value, email: document.getElementById('c-email').value,
+    mensaje: document.getElementById('c-msg').value, empresa: document.getElementById('c-empresa').value,
+    recaptcha: await recaptchaToken() };
+  out.textContent = 'Enviando...';
+  try {
+    const r = await fetch('api/contact.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    if (!r.ok) throw new Error('err');
+    out.textContent = 'Mensaje enviado. Te respondemos en menos de 24h hábiles.';
+    e.target.reset();
+  } catch { out.textContent = 'No se pudo enviar. Escríbenos por WhatsApp al 33 1064 2354.'; }
+});
+</script>
+<script src="app.js?v=20261001-4" defer></script></body></html>

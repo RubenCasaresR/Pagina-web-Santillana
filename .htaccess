@@ -1,0 +1,73 @@
+# Santillana — Performance + seguridad básica (Apache/XAMPP)
+# 1. Sin listado de directorios (evita indexar /santillana/ con 4000+ files)
+Options -Indexes
+
+# 2b. Fichas viejas p-{id}.html -> plantilla dinámica (301, conserva SEO)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^producto/([A-Za-z0-9\-]+)/?$ producto.php?key=$1 [QSA,L]
+RewriteRule ^productos/p-([0-9]+)\.html$ producto.php?key=p-$1&legacy=1 [QSA,L]
+</IfModule>
+
+# 2. Bloquear backup y archivos sensibles sin borrarlos (performance: evita descargas de 400MB)
+<FilesMatch "^(santillana\.zip|cookies\.txt|hts-log\.txt|.*\.log)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "\.(sql|bak|old|tmp|swp)$">
+  Require all denied
+</FilesMatch>
+# Bloquear rastreo del mirror scrapeado (solo sirven imágenes puntuales)
+RedirectMatch 403 ^/santillana/(hts-cache|hts-log\.txt|cookies\.txt|.*\.txt)$
+RedirectMatch 403 ^/santillana/(ajax\.googleapis\.com|www\.googletagmanager\.com|www\.googleadservices\.com)/.*$
+
+# 3. Compresión (reduce 106KB JSON + 28KB CSS + 36KB JS ~70%)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# 4. Caché navegador: CSS/JS/JSON 7 días, imágenes 30 días, HTML 1 hora
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType application/json "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+<IfModule mod_headers.c>
+  # Revalidar HTML, cachear assets inmutables con ?v=
+  <FilesMatch "\.(css|js|png|jpg|jpeg|webp|svg)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.(webp|png|jpg|jpeg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# 5. Seguridad mínima sin romper nada
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+# HSTS: activar SOLO cuando el sitio corra 100% en HTTPS (Neubox con SSL). Descomentar entonces:
+# <IfModule mod_headers.c>
+#   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+# </IfModule>
+# CSP: permite mismo origen + PayPal + WhatsApp. Reporta sin bloquear hasta validar en producción:
+<IfModule mod_headers.c>
+  Header set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' https://www.paypal.com https://www.sandbox.paypal.com https://www.google.com https://www.gstatic.com; connect-src 'self' https://api-m.paypal.com https://api-m.sandbox.paypal.com https://www.google.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; frame-src https://www.paypal.com https://www.sandbox.paypal.com https://www.google.com; form-action 'self'"
+</IfModule>
+
+# 6. Backend: nunca exponer config ni logs
+<FilesMatch "^(config\.php|.*\.log|\.env.*)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^\.env">
+  Require all denied
+</FilesMatch>
