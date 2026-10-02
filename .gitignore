@@ -1,0 +1,14 @@
+.env
+.env.local
+.env.real
+*.log
+santillana.zip
+.ftpquota
+# Proyecto aparte con su propio repo (frankdevmegamente/controlexpert-monitor-)
+controlexpert-monitor-/
+# Nunca subir dumps ni backups a la raíz pública (en Nginx el .htaccess no los protege)
+*.sql
+*.bak
+*.zip
+tools/slugfix_*.csv
+controlexpert-monitor-/node_modules/

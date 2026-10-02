@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /tools/
+Disallow: /migrations/
+
+# No indexar mirror scrapeado ni backups (ahorra crawl y evita descargas de 400MB)
+Disallow: /santillana/
+Disallow: /*.zip$
+Disallow: /carrito.html
+Disallow: /cuenta.html
+Disallow: /checkout.html
+Disallow: /baja.html
+# Fichas legacy estáticas: consolidar en /producto/ canónico
+Disallow: /productos/
+
+Sitemap: https://santillana-mx.com/sitemap.xml
